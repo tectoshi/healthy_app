@@ -1,0 +1,32 @@
+<footer id="footer">
+	<div class="inner">
+  	<!-- 左側 -->
+		<div id="info" class="grid">
+			<!-- ロゴ -->
+			<div class="logo">
+        <%= link_to 'EatHealthy!!!!', root_path %>
+			</div>
+			<!-- / ロゴ -->
+			<!-- 電話番号+受付時間 -->
+			<div class="info">
+				<p class="tel">食べて健康!!</p>
+			</div>
+			<!-- / 電話番号+受付時間 -->
+		</div>  
+		<!-- / 左側 -->
+		<!-- 右側 ナビゲーション -->
+		<ul class="footnav">
+        <li><%= link_to 'トップページ', root_path %></li>
+        <li><%= link_to '食材登録', new_nutrient_path %></li>
+				<li><%#= link_to '食材修正', new_nutrient_path %></li>
+				<li><%= link_to 'プロフィール編集', new_nutrient_path %></li>
+				<% if user_signed_in? %>
+				<li><%= link_to 'カレンダー', calendars_path %></li>
+				<li><%= link_to "マイページ", user_path(current_user) %></li>
+				<% end %>
+		</ul>
+		<!-- / 右側 ナビゲーション -->
+	</div>
+  	<address>Copyright(c) 2013 Sample Inc. All Rights Reserved. Design by <a href="http://f-tpl.com" target="_blank" rel="nofollow">http://f-tpl.com</a></address>
+</footer>
+	<!-- / フッター -->

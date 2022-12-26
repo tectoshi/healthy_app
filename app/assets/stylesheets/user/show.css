@@ -1,0 +1,36 @@
+.show-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date {
+  text-align: center;
+  font-size: 20px;
+  margin: 15px 0 25px;
+}
+
+.graph-title {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.personal {
+  font-size: 25px;
+}
+
+.profile {
+  font-size: 20px;
+}
+
+.nutrients {
+  font-size: 20px;
+}
+
+.nutrients-sum {
+  margin-top: 20px;
+}
+
+span.week {
+  font-size: 20px;
+  margin-left: 20px;
+}

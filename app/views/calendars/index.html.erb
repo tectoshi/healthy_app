@@ -1,0 +1,17 @@
+<%= render "shared/header" %>
+<div id="wrapper">
+  <div class="col-md-8">
+  <%= month_calendar events: @nutrients do |date, nutrients| %>
+    <%= date.day %>
+
+    <% nutrients.each do |nutrient| %>
+      <div>
+        <%= link_to "#{nutrient.name} #{nutrient.number}個", nutrient %>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+  </div>
+  </div>
+</div>
+<%= render "shared/footer" %>

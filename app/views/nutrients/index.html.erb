@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+<title>eat_healthy</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<script src="js/css3-mediaqueries.js"></script>
+<![endif]-->
+<!--<script src="js/jquery1.7.2.min.js"></script>
+<script src="js/script.js"></script>
+<link rel="stylesheet" href="style.css" type="text/css" media="screen">
+-->
+</head>
+
+<%= render "shared/header" %>
+<body>
+
+
+  
+<div id="wrapper">
+  
+  <!-- メイン画像 -->
+	<div id="mainBanner">
+		 <%= image_tag "vegetable2.jpg", class: "main-image" %>
+    <div class="slogan">
+			<h2>食事は身体を作るもの・・・</h2>
+			<p>一食ごとの栄養管理は面倒！ざっくりヘルシーしたい！！<br>今週購入した栄養素の合計値がわかります！</p>
+		</div>
+	</div>
+	<!-- / メイン画像 -->
+
+  <!-- 3カラム -->
+  <section class="gridWrapper">
+		<% if user_signed_in? %>
+		<article class="grid">
+      <div class="box">
+				<!--<img src="images/top_m1.png" width="75" height="75" alt="" class="alignleft">-->
+				<%= image_tag "top_m1.png", class:"alignleft" %>
+				<h3>購入した食材を登録しましょう</h3>
+				<p>食材と個数を登録することで、全て食べた時に得られる栄養素が簡単に割り出されます。</p>
+				<p class="readmore"><%= link_to '食材を登録する', new_nutrient_path %></p>
+      </div>
+		</article>
+		<article class="grid">
+			<div class="box">
+      	<!--<img src="images/top_m2.png" width="75" height="75" alt="" class="alignleft">-->
+				<%= image_tag "top_m2.png", class:"alignleft" %>
+				<h3>現在の摂取栄養素が確認できます</h3>
+				<p>今週登録した食材の栄養素の合計と、現在の自身の適正体重・BMIが確認できます。</p>
+				<p class="readmore"><%= link_to "詳細を確認する", user_path(current_user) %></p>
+      </div>
+		</article>
+    <article class="grid">
+    	<div class="box">
+					<!--<img src="images/top_m3.png" width="75" height="75" alt="" class="alignleft">-->
+					<%= image_tag "top_m3.png", class:"alignleft" %>
+					<h3>ご自身のプロフィールを編集できます</h3>
+					<p>変更がある場合はこちらからどうぞ。お名前・身長・体重・年齢・性別を変更することができます。</p>
+					<p class="readmore"><%= link_to '編集する', edit_user_path(current_user) %></p>				
+			</div>
+    </article>
+		<% else %>
+			<article class="grid">
+      <div class="box">
+				<%= image_tag "top_m3.png", class:"alignleft" %>
+				<h3>アカウントの新規登録ができます</h3>
+				<p>こちらから新規登録をしてください！ヘルシーがあなたを待っています！</p>
+				<p class="readmore"><%= link_to '新規登録する', new_user_registration_path %></p>
+			</div>
+		</article>
+		<% end %>
+	</section>
+	<!-- / 3カラム -->
+  
+</div>
+ 
+<!-- フッター -->
+<%= render "shared/footer" %>
+</body>
+</html>

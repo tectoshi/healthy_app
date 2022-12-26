@@ -1,0 +1,41 @@
+<%= render "shared/header" %>
+
+<body>
+  <div id="wrapper">
+  <div class="date">
+      - <%= @date %>
+      (<%= @wday %>) -
+  </div>
+    <div class="show-main">
+      <div class="personal">
+        <%= "#{current_user.name} さん" %><br>
+        <ul class="profile">
+         <!-- <li>　性別：<%= @gender %>性</li>
+          <li>　年齢：<%= @age %> 歳</li>
+          <li>　身長：<%= current_user.height %> cm</li>-->
+          <li>　体重：<%= current_user.weight %> kg</li>
+          <li>　適正体重：<%= @best_w.round(1) %> kg</li>
+          <li>　BMI：<%= @bmi.round(2) %></li>
+      </div>
+
+      <div class="nutrients">
+        <p id="notice"><%= notice %></p>
+        <h1 class="graph-title">現在のトータル栄養素量(%)<span class="week"><%= "[#{@from.strftime('%d')}(月) ~ #{@to.strftime('%d')}(日)]" %></span></h1>
+        <%= bar_chart @nutrient_graph, height: "40vh", width: "80vh", precision: 3, max: 150, suffix: "%" %>
+        <%= link_to 'New Product', new_nutrient_path %>
+        <div class="nutrients-sum">
+          <h1 class="graph-title">現在の購入総量　/　今週の理想量</h1>
+            カロリー　：<%= "#{@calorie.round(1)} / #{@cal.round(1)}" %> kcal<br>
+            タンパク質：<%= "#{@protein.round(1)} / #{@pro.round(1)}" %> g<br>
+            脂質　　　：<%= "#{@lipid.round(1)} / #{@lip.round(1)}" %> g<br>
+            炭水化物　：<%= "#{@carbohydrate.round(1)} / #{@car.round(1)}" %> g<br>
+            糖質　　　：<%= "#{@sugar.round(1)} / #{@sug.round(1)}" %> g<br>
+            食物繊維　：<%= "#{@fiber.round(1)} / #{@fib.round(1)}" %> g<br>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</body>
+
+<%= render "shared/footer" %>
